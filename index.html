@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MEDIPHARMA S.A. | Distribución Farmacéutica en Ecuador</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      /* Colores oficiales del Manual de Identidad Corporativa MEDIPHARMA (sección 05) */
+      --rojo: #E63231;
+      /* HTML #e63231 */
+      --negro: #29292A;
+      /* HTML #29292a */
+      --gris: #696969;
+      /* HTML #696969 */
+      --blanco: #FFFFFF;
+      /* HTML #ffffff */
+      /* Tonos derivados del rojo/negro de marca (no vienen en el manual, solo para profundidad/hover) */
+      --rojo-oscuro: #B7211F;
+      --rojo-hielo: #FBEAE9;
+      --linea: #E7E4E4;
+      --texto: var(--negro);
+      --gris-suave: var(--gris);
+      --rojo-profundo: var(--negro);
+      --rojo-vivo: var(--rojo);
+      --rojo-medio: var(--rojo-oscuro);
+      --sombra: 0 20px 45px rgba(41, 41, 42, 0.14);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      color: var(--texto);
+      background: var(--blanco);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    h1,
+    h2,
+    h3,
+    .brand {
+      font-family: 'Sora', sans-serif;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .wrap {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--linea);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 24px;
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand img {
+      height: 46px;
+      width: 46px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .brand-text strong {
+      font-size: 1.05rem;
+      letter-spacing: 0.5px;
+      color: var(--rojo-profundo);
+    }
+
+    .brand-text span {
+      font-size: 0.68rem;
+      color: var(--gris-suave);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    nav.links {
+      display: flex;
+      gap: 28px;
+      font-weight: 600;
+      font-size: 0.88rem;
+      color: var(--rojo-profundo);
+    }
+
+    nav.links a {
+      position: relative;
+      padding: 6px 0;
+    }
+
+    nav.links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: var(--rojo-vivo);
+      transition: width .25s ease;
+    }
+
+    nav.links a:hover::after {
+      width: 100%;
+    }
+
+    .btn-nav {
+      background: var(--rojo);
+      color: #fff !important;
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .btn-nav:hover {
+      background: var(--rojo-oscuro);
+    }
+
+    .hero {
+      position: relative;
+      min-height: 88vh;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(120deg, rgba(41, 41, 42, 0.93) 10%, rgba(230, 50, 49, 0.72) 45%, rgba(230, 50, 49, 0.32) 80%), url('assets/camion-distribucion.jpg') center/cover no-repeat;
+    }
+
+    .hero-content {
+      max-width: 660px;
+      color: #fff;
+      padding: 80px 0;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #F4C6C4;
+      margin-bottom: 22px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 26px;
+      height: 2px;
+      background: #F4C6C4;
+      display: inline-block;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.1rem, 4.6vw, 3.2rem);
+      font-weight: 800;
+      line-height: 1.16;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: #FFB4AE;
+    }
+
+    .hero p {
+      font-size: 1.05rem;
+      color: #F3DEDD;
+      max-width: 540px;
+      margin-bottom: 28px;
+    }
+
+    .hero-tagline {
+      font-size: 0.92rem;
+      color: #F8E4E3;
+      font-weight: 600;
+      margin-bottom: 34px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 18px;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: #fff;
+      color: var(--rojo);
+      padding: 15px 30px;
+      border-radius: 32px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      box-shadow: var(--sombra);
+    }
+
+    .btn-primary:hover {
+      background: var(--rojo-hielo);
+    }
+
+    .btn-outline {
+      border: 1.5px solid rgba(255, 255, 255, 0.6);
+      color: #fff;
+      padding: 15px 30px;
+      border-radius: 32px;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    section {
+      padding: 96px 0;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--rojo-vivo);
+      margin-bottom: 14px;
+    }
+
+    .section-head {
+      max-width: 680px;
+      margin-bottom: 50px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(1.7rem, 3vw, 2.3rem);
+      color: var(--rojo-profundo);
+      font-weight: 800;
+      margin-bottom: 14px;
+    }
+
+    .section-head p {
+      color: var(--gris-suave);
+      font-size: 1rem;
+    }
+
+    .nosotros-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .nosotros-grid p {
+      color: var(--gris-suave);
+      margin-bottom: 18px;
+      font-size: 1.02rem;
+    }
+
+    .nosotros-img {
+      position: relative;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: var(--sombra);
+    }
+
+    .nosotros-img img {
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .badge-float {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      background: var(--blanco);
+      padding: 16px 20px;
+      border-radius: 14px;
+      box-shadow: 0 12px 30px rgba(110, 18, 31, 0.2);
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .badge-float strong {
+      display: block;
+      font-size: 1.3rem;
+      color: var(--rojo-profundo);
+      font-family: 'Sora';
+    }
+
+    .badge-float span {
+      font-size: 0.75rem;
+      color: var(--gris-suave);
+    }
+
+    .soluciones {
+      background: var(--rojo-hielo);
+    }
+
+    .serv-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
+    .serv-card {
+      background: var(--rojo);
+      color: #fff;
+      border-radius: 18px;
+      padding: 32px 26px;
+      min-height: 220px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .serv-card:nth-child(2) {
+      background: var(--rojo-oscuro);
+    }
+
+    .serv-card:nth-child(3) {
+      background: var(--negro);
+    }
+
+    .serv-card:nth-child(4) {
+      background: #141415;
+    }
+
+    .serv-num {
+      font-family: 'Sora';
+      font-size: 0.8rem;
+      opacity: 0.65;
+      letter-spacing: 2px;
+    }
+
+    .serv-card h3 {
+      font-size: 1.08rem;
+      margin: 18px 0 10px;
+    }
+
+    .serv-card p {
+      font-size: 0.85rem;
+      opacity: 0.9;
+    }
+
+    .calidad-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .calidad-grid p.lead {
+      color: var(--gris-suave);
+      margin-bottom: 24px;
+      font-size: 1.02rem;
+    }
+
+    .check-list li {
+      display: flex;
+      gap: 14px;
+      margin-bottom: 16px;
+      align-items: flex-start;
+      color: var(--texto);
+      font-size: 0.98rem;
+    }
+
+    .check-list .tick {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--rojo-hielo);
+      color: var(--rojo);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-weight: 800;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .nota-final {
+      margin-top: 26px;
+      padding: 18px 22px;
+      border-left: 3px solid var(--rojo-vivo);
+      background: var(--rojo-hielo);
+      border-radius: 0 10px 10px 0;
+      color: var(--gris-suave);
+      font-size: 0.92rem;
+    }
+
+    .calidad-img {
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: var(--sombra);
+    }
+
+    .sectores {
+      background: var(--rojo-hielo);
+    }
+
+    .sect-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
+    .sect-card {
+      background: var(--blanco);
+      border-radius: 16px;
+      padding: 30px 24px;
+      box-shadow: 0 8px 22px rgba(110, 18, 31, 0.06);
+      border-top: 4px solid var(--rojo-vivo);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .sect-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--sombra);
+    }
+
+    .sect-card h4 {
+      color: var(--rojo-profundo);
+      font-size: 1.02rem;
+      margin-bottom: 10px;
+    }
+
+    .sect-card p {
+      font-size: 0.87rem;
+      color: var(--gris-suave);
+    }
+
+    .banner {
+      position: relative;
+      min-height: 360px;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(90deg, rgba(41, 41, 42, 0.9), rgba(230, 50, 49, 0.55) 60%, rgba(230, 50, 49, 0.18)), url('assets/bodega-medicamentos.png') center/cover no-repeat;
+      border-radius: 24px;
+      overflow: hidden;
+      color: #fff;
+      padding: 54px;
+    }
+
+    .banner-content {
+      max-width: 540px;
+    }
+
+    .banner .tag {
+      color: #F4C6C4;
+    }
+
+    .banner h2 {
+      font-size: 1.9rem;
+      margin-bottom: 16px;
+      color: #fff;
+    }
+
+    .banner p {
+      opacity: 0.92;
+      margin-bottom: 22px;
+      font-size: 1.02rem;
+    }
+
+    .proposito {
+      background: var(--blanco);
+    }
+
+    .vm-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-bottom: 60px;
+    }
+
+    .vm-card {
+      background: var(--rojo-hielo);
+      border-radius: 18px;
+      padding: 38px;
+      border-top: 4px solid var(--rojo-profundo);
+    }
+
+    .vm-card.vision {
+      border-top-color: var(--rojo-vivo);
+    }
+
+    .vm-card h3 {
+      font-size: 1.3rem;
+      color: var(--rojo-profundo);
+      margin-bottom: 14px;
+    }
+
+    .vm-card p {
+      color: var(--gris-suave);
+    }
+
+    .valores-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
+    .valor-card {
+      text-align: center;
+      padding: 30px 20px;
+      border: 1px solid var(--linea);
+      border-radius: 16px;
+    }
+
+    .valor-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--rojo);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+      font-family: 'Sora';
+      font-weight: 700;
+      font-size: 1.3rem;
+    }
+
+    .valor-card h4 {
+      color: var(--rojo-profundo);
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+
+    .valor-card p {
+      font-size: 0.85rem;
+      color: var(--gris-suave);
+    }
+
+    .contacto {
+      background: var(--rojo-hielo);
+    }
+
+    .contacto-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: start;
+    }
+
+    .contacto-card {
+      background: var(--rojo);
+      border-radius: 20px;
+      padding: 40px;
+      color: #fff;
+    }
+
+    .contacto-card h3 {
+      font-size: 1.35rem;
+      margin-bottom: 8px;
+    }
+
+    .contacto-card .sub {
+      font-size: 0.9rem;
+      opacity: 0.85;
+      margin-bottom: 26px;
+    }
+
+    .contacto-item {
+      display: flex;
+      gap: 14px;
+      margin-bottom: 20px;
+      align-items: flex-start;
+    }
+
+    .contacto-item .ico {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.14);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1.1rem;
+    }
+
+    .contacto-item strong {
+      display: block;
+      font-size: 0.95rem;
+    }
+
+    .contacto-item span {
+      font-size: 0.85rem;
+      opacity: 0.85;
+    }
+
+    .form-box {
+      background: #fff;
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: var(--sombra);
+    }
+
+    .form-box h3 {
+      color: var(--rojo-profundo);
+      font-size: 1.3rem;
+      margin-bottom: 6px;
+    }
+
+    .form-box .sub {
+      color: var(--gris-suave);
+      font-size: 0.9rem;
+      margin-bottom: 26px;
+    }
+
+    .field {
+      margin-bottom: 18px;
+    }
+
+    .field label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--rojo);
+      margin-bottom: 6px;
+    }
+
+    .field input,
+    .field textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid var(--linea);
+      border-radius: 10px;
+      font-family: 'Jost';
+      font-size: 0.92rem;
+      color: var(--texto);
+      background: #FCFAFA;
+    }
+
+    .field textarea {
+      min-height: 90px;
+      resize: vertical;
+    }
+
+    .field input:focus,
+    .field textarea:focus {
+      outline: 2px solid var(--rojo-vivo);
+      outline-offset: 1px;
+    }
+
+    .form-btn {
+      width: 100%;
+      background: var(--rojo);
+      color: #fff;
+      border: none;
+      padding: 14px;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      font-family: 'Jost';
+    }
+
+    .form-btn:hover {
+      background: var(--rojo-oscuro);
+    }
+
+    footer {
+      background: var(--negro);
+      color: #C7C7C8;
+      padding: 50px 0 24px;
+    }
+
+    .foot-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 36px;
+    }
+
+    .foot-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .foot-brand img {
+      height: 40px;
+      width: 40px;
+      border-radius: 50%;
+    }
+
+    .foot-brand strong {
+      color: #fff;
+      font-family: 'Sora';
+      font-size: 1.05rem;
+    }
+
+    footer p {
+      font-size: 0.87rem;
+      color: #B4B4B5;
+    }
+
+    footer h5 {
+      color: #fff;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    footer .foot-links a {
+      display: block;
+      font-size: 0.87rem;
+      color: #B4B4B5;
+      margin-bottom: 10px;
+    }
+
+    footer .foot-links a:hover {
+      color: var(--rojo-vivo);
+    }
+
+    .copy {
+      font-size: 0.8rem;
+      color: #8B8B8C;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 22px;
+    }
+
+    @media(max-width:960px) {
+      .nav .links {
+        display: none;
+      }
+
+      .nosotros-grid,
+      .vm-grid,
+      .contacto-grid,
+      .calidad-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .sect-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .serv-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .valores-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .foot-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media(max-width:600px) {
+
+      .sect-grid,
+      .serv-grid,
+      .valores-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .banner {
+        padding: 30px;
+      }
+
+      section {
+        padding: 70px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="nav">
+      <a href="#inicio" class="brand">
+        <img src="assets/logo-medipharma.png" alt="Logo MEDIPHARMA S.A.">
+        <div class="brand-text">
+          <strong>MEDIPHARMA S.A.</strong>
+          <span>Distribución farmacéutica</span>
+        </div>
+      </a>
+      <nav class="links">
+        <a href="#quienes-somos">Quiénes somos</a>
+        <a href="#soluciones">Soluciones</a>
+        <a href="#calidad">Calidad</a>
+        <a href="#sectores">Sectores</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+      <a href="https://wa.me/593982046568" class="btn-nav">WhatsApp</a>
+    </div>
+  </header>
+
+  <section class="hero" id="inicio">
+    <div class="wrap">
+      <div class="hero-content">
+        <span class="eyebrow">Distribución farmacéutica · Ecuador</span>
+        <h1>Distribución farmacéutica para <em>instituciones de salud</em> en Ecuador</h1>
+        <p>Soluciones de abastecimiento y distribución de medicamentos e insumos médicos para hospitales, clínicas e
+          instituciones públicas y privadas.</p>
+        <div class="hero-tagline">
+          <span>✓ Más de 10 años de experiencia</span>
+          <span>✓ Cobertura nacional</span>
+          <span>✓ Atención pública y privada</span>
+          <span>✓ Servicio personalizado</span>
+        </div>
+        <div class="hero-ctas">
+          <a href="https://wa.me/593980632851" class="btn-primary">Solicitar cotización</a>
+          <a href="#quienes-somos" class="btn-outline">Conocer más</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="quienes-somos">
+    <div class="wrap">
+      <div class="nosotros-grid">
+        <div>
+          <span class="tag">Quiénes somos</span>
+          <h2 style="color:var(--rojo-profundo); font-size:2rem; margin-bottom:20px;">Experiencia y compromiso con el
+            sector salud</h2>
+          <p>Medipharma S.A. es una empresa ecuatoriana con sede en Quito, especializada en la distribución de
+            medicamentos e insumos médicos a nivel nacional.</p>
+          <p>Contamos con más de diez años de experiencia atendiendo requerimientos de instituciones públicas y
+            privadas. Nuestra trayectoria comprende la distribución farmacéutica, la contratación pública, la gestión
+            documental y la coordinación logística.</p>
+          <p>Nuestro equipo trabaja con responsabilidad y comunicación directa para comprender las necesidades de cada
+            institución y gestionar sus solicitudes de manera eficiente.</p>
+        </div>
+        <div class="nosotros-img">
+          <img src="assets/bodega-medicamentos.png" alt="Bodega de medicamentos MEDIPHARMA">
+          <div class="badge-float">
+            <div>
+              <strong>+10 años</strong>
+              <span>De experiencia en el sector</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="soluciones" id="soluciones">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="tag">Nuestras soluciones</span>
+        <h2>Servicios para instituciones del sector salud</h2>
+      </div>
+      <div class="serv-grid">
+        <div class="serv-card">
+          <span class="serv-num">01</span>
+          <div>
+            <h3>Distribución farmacéutica</h3>
+            <p>Gestionamos la distribución de medicamentos e insumos médicos de acuerdo con las necesidades y
+              condiciones de cada institución.</p>
+          </div>
+        </div>
+        <div class="serv-card">
+          <span class="serv-num">02</span>
+          <div>
+            <h3>Contratación pública farmacéutica</h3>
+            <p>Contamos con experiencia en procesos de contratación con entidades públicas y en la gestión de los
+              requerimientos documentales correspondientes.</p>
+          </div>
+        </div>
+        <div class="serv-card">
+          <span class="serv-num">03</span>
+          <div>
+            <h3>Insumos médico-quirúrgicos</h3>
+            <p>Atendemos solicitudes de dispositivos médicos, equipos de diagnóstico, materiales quirúrgicos y elementos
+              de bioseguridad.</p>
+          </div>
+        </div>
+        <div class="serv-card">
+          <span class="serv-num">04</span>
+          <div>
+            <h3>Coordinación logística</h3>
+            <p>Coordinamos los despachos y brindamos seguimiento durante el proceso de entrega.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="calidad">
+    <div class="wrap">
+      <div class="calidad-grid">
+        <div>
+          <span class="tag">Calidad y cumplimiento</span>
+          <h2 style="color:var(--rojo-profundo); font-size:2rem; margin-bottom:18px;">Gestión responsable en cada
+            proceso</h2>
+          <p class="lead">En Medipharma S.A. gestionamos cada requerimiento considerando las condiciones sanitarias,
+            comerciales y documentales aplicables a la distribución farmacéutica. Nuestro enfoque contempla:</p>
+          <ul class="check-list">
+            <li><span class="tick">✓</span> Selección responsable de proveedores.</li>
+            <li><span class="tick">✓</span> Revisión de la documentación correspondiente.</li>
+            <li><span class="tick">✓</span> Coordinación con operadores logísticos especializados.</li>
+            <li><span class="tick">✓</span> Seguimiento de pedidos y despachos.</li>
+            <li><span class="tick">✓</span> Manejo responsable de la información comercial y documental.</li>
+          </ul>
+          <div class="nota-final">Las condiciones de cada operación se revisan de acuerdo con las características del
+            requerimiento y las necesidades de la institución solicitante.</div>
+        </div>
+        <div class="calidad-img">
+          <img src="assets/camion-distribucion.jpg" alt="Distribución de medicamentos MEDIPHARMA">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sectores" id="sectores">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="tag">Sectores atendidos</span>
+        <h2>Abastecimiento para instituciones de salud</h2>
+      </div>
+      <div class="sect-grid">
+        <div class="sect-card">
+          <h4>Hospitales</h4>
+          <p>Atendemos requerimientos considerando las necesidades operativas, documentales y logísticas de cada
+            institución.</p>
+        </div>
+        <div class="sect-card">
+          <h4>Clínicas y centros médicos</h4>
+          <p>Gestionamos solicitudes de medicamentos, insumos médicos y materiales requeridos por instituciones privadas
+            de salud.</p>
+        </div>
+        <div class="sect-card">
+          <h4>Instituciones públicas</h4>
+          <p>Participamos en procesos de contratación pública y gestionamos la documentación correspondiente a cada
+            solicitud.</p>
+        </div>
+        <div class="sect-card">
+          <h4>Instituciones privadas</h4>
+          <p>Ofrecemos soluciones de abastecimiento adaptadas a las condiciones comerciales y operativas de cada
+            organización.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cobertura">
+    <div class="wrap">
+      <div class="banner">
+        <div class="banner-content">
+          <span class="tag">Cobertura nacional</span>
+          <h2>Distribución de medicamentos en todo Ecuador</h2>
+          <p>Coordinamos despachos para instituciones ubicadas en diferentes zonas del país. Cada entrega se gestiona
+            según el lugar de destino, las características del requerimiento y las condiciones logísticas aplicables.
+          </p>
+          <p style="margin-bottom:0;">Nuestro equipo brinda seguimiento durante el proceso de despacho y mantiene una
+            comunicación directa con cada cliente.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="proposito" id="proposito">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="tag">Nuestro propósito</span>
+        <h2>Misión y visión</h2>
+      </div>
+      <div class="vm-grid">
+        <div class="vm-card">
+          <h3>Misión</h3>
+          <p>Brindar soluciones eficientes y responsables para la distribución de medicamentos e insumos médicos,
+            ofreciendo atención personalizada y condiciones competitivas a instituciones del sector salud.</p>
+        </div>
+        <div class="vm-card vision">
+          <h3>Visión</h3>
+          <p>Consolidarnos como una empresa referente en la distribución farmacéutica en Ecuador, reconocida por la
+            confiabilidad de su servicio, su capacidad de atención y su cobertura nacional.</p>
+        </div>
+      </div>
+
+      <div class="section-head" style="margin-bottom:34px;">
+        <span class="tag">Valores</span>
+        <h2>Lo que nos define</h2>
+      </div>
+      <div class="valores-grid">
+        <div class="valor-card">
+          <div class="valor-icon">R</div>
+          <h4>Responsabilidad</h4>
+          <p>Gestionamos cada requerimiento con seriedad y profesionalismo.</p>
+        </div>
+        <div class="valor-card">
+          <div class="valor-icon">C</div>
+          <h4>Confianza</h4>
+          <p>Construimos relaciones comerciales transparentes y duraderas.</p>
+        </div>
+        <div class="valor-card">
+          <div class="valor-icon">S</div>
+          <h4>Servicio</h4>
+          <p>Escuchamos las necesidades de cada cliente para brindar una atención adecuada.</p>
+        </div>
+        <div class="valor-card">
+          <div class="valor-icon">C</div>
+          <h4>Compromiso</h4>
+          <p>Acompañamos cada solicitud desde su recepción hasta el seguimiento del despacho.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contacto" id="contacto">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="tag">Contacto y cotizaciones</span>
+        <h2>Solicite una cotización para su institución</h2>
+        <p>Comuníquese con nuestro equipo para presentar un requerimiento, consultar disponibilidad o solicitar
+          información sobre nuestros servicios.</p>
+      </div>
+      <div class="contacto-grid">
+        <div class="contacto-card">
+          <h3>Información de contacto</h3>
+          <div class="sub">Estamos disponibles para atender su institución</div>
+          <div class="contacto-item">
+            <div class="ico">📍</div>
+            <div><strong>Ubicación</strong><span>Quito, Ecuador</span></div>
+          </div>
+          <div class="contacto-item">
+            <div class="ico">📱</div>
+            <div><strong>WhatsApp</strong><span>+593 98 204 6568</span></div>
+          </div>
+          <div class="contacto-item">
+            <div class="ico">✉️</div>
+            <div>
+              <strong>Correo electrónico</strong>
+              <span>ventas@medipharma.com.ec</span><br>
+              <span>gerencia@medipharma.com.ec</span><br>
+              <span>gerenciaventas@medipharma.com.ec</span><br>
+              <span>asistentegerencia@medipharma.com.ec</span>
+            </div>
+          </div>
+          <div class="contacto-item">
+            <div class="ico">🕘</div>
+            <div><strong>Horario de atención</strong><span>Lunes a viernes, de 08:00 a 12:00 y de 13:00 a 17:00</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-box">
+          <h3>Formulario de contacto</h3>
+          <div class="sub">Complete sus datos y le responderemos a la brevedad</div>
+          <!-- ⚠️ CAMBIAR: reemplaza TU-CORREO-TEMPORAL@gmail.com por el Gmail donde quieres recibir las solicitudes mientras compran el dominio y los correos corporativos -->
+          <form action="https://formsubmit.co/medipharmacc@gmail.com" method="POST">
+            <input type="hidden" name="_subject" value="Nueva solicitud de cotización — sitio web MEDIPHARMA">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="true">
+            <div class="field">
+              <label>Nombre</label>
+              <input type="text" name="Nombre" placeholder="Ej. María" required>
+            </div>
+            <div class="field">
+              <label>Apellido</label>
+              <input type="text" name="Apellido" placeholder="Ej. Fernández" required>
+            </div>
+            <div class="field">
+              <label>Empresa / Institución</label>
+              <input type="text" name="Empresa" placeholder="Nombre de la institución" required>
+            </div>
+            <div class="field">
+              <label>Correo electrónico</label>
+              <input type="email" name="Correo" placeholder="nombre@institucion.com" required>
+            </div>
+            <button class="form-btn" type="submit">Enviar solicitud</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="foot-grid">
+        <div>
+          <div class="foot-brand">
+            <img src="assets/logo-medipharma.png" alt="Logo MEDIPHARMA S.A.">
+            <strong>MEDIPHARMA S.A.</strong>
+          </div>
+          <p>Distribución de medicamentos e insumos médicos para instituciones públicas y privadas en Ecuador.</p>
+          <p style="margin-top:16px;">
+            Sede: Quito, Ecuador<br>
+            WhatsApp: +593 98 204 6568<br>
+            ventas@medipharma.com.ec<br>
+            gerencia@medipharma.com.ec<br>
+            gerenciaventas@medipharma.com.ec<br>
+            asistentegerencia@medipharma.com.ec
+          </p>
+        </div>
+        <div>
+          <h5>Enlaces</h5>
+          <div class="foot-links">
+            <a href="#inicio">Inicio</a>
+            <a href="#quienes-somos">Quiénes somos</a>
+            <a href="#soluciones">Soluciones</a>
+            <a href="#calidad">Calidad y cumplimiento</a>
+            <a href="#sectores">Sectores atendidos</a>
+            <a href="#cobertura">Cobertura nacional</a>
+            <a href="#contacto">Contacto</a>
+          </div>
+        </div>
+        <div>
+          <h5>Información legal</h5>
+          <div class="foot-links">
+            <a href="#">Política de privacidad</a>
+            <a href="#">Términos y condiciones</a>
+          </div>
+          <p style="margin-top:20px;">La información publicada en este sitio web tiene carácter corporativo e
+            institucional. Para consultar disponibilidad, condiciones comerciales o presentar un requerimiento
+            específico, comuníquese con nuestro equipo.</p>
+        </div>
+      </div>
+      <div class="copy">© 2026 Medipharma S.A. Todos los derechos reservados.</div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
