@@ -129,7 +129,7 @@
     .brand-text strong {
       font-size: 1.15rem;
       letter-spacing: 0.5px;
-      color: var(--negro);
+      color: var(--rojo);
     }
 
     .brand-text span {
@@ -242,7 +242,7 @@
 
     .eyebrow::before {
       content: "";
-      width: 26px;
+      width: 10px;
       height: 2px;
       background: var(--rojo);
       display: inline-block;
@@ -1006,12 +1006,36 @@
     }
 
     /* Efecto de aparición al hacer scroll entre secciones (no altera ningún estilo existente) */
-    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .8s ease, transform .8s ease; }
-    .reveal.is-visible { opacity: 1; transform: translateY(0); }
-    .reveal-card { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
-    .reveal-card.is-visible { opacity: 1; transform: translateY(0); }
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .8s ease, transform .8s ease;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-card {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+
+    .reveal-card.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
     @media (prefers-reduced-motion: reduce) {
-      .reveal, .reveal-card { opacity: 1; transform: none; transition: none; }
+
+      .reveal,
+      .reveal-card {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
     }
   </style>
 </head>
@@ -1024,7 +1048,7 @@
         <img src="assets/logo-medipharma.png" alt="Logo MEDIPHARMA">
         <div class="brand-text">
           <strong>MEDIPHARMA</strong>
-          <span>Distribución farmacéutica</span>
+          <!-- <span>Tu salud, un bien de calidad</span> -->
         </div>
       </a>
       <nav class="links">
