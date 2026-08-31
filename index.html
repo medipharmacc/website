@@ -114,10 +114,10 @@
     }
 
     .brand img {
-      height: 44px;
-      width: 44px;
-      border-radius: 50%;
-      object-fit: cover;
+      height: 60px;
+      width: auto;
+      max-width: 220px;
+      ;
     }
 
     .brand-text {
@@ -236,7 +236,7 @@
       font-weight: 700;
       letter-spacing: 2px;
       text-transform: uppercase;
-      color: var(--rojo);
+      color: var(--gris);
       margin-bottom: 18px;
     }
 
@@ -244,7 +244,7 @@
       content: "";
       width: 10px;
       height: 2px;
-      background: var(--rojo);
+      background: var(--gris);
       display: inline-block;
     }
 
@@ -365,6 +365,15 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      opacity: 0.92;
+    }
+
+    .hero-image::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, rgba(41, 41, 42, 0.65) 0%, rgba(230, 50, 49, 0.5) 45%, rgba(230, 50, 49, 0.2) 100%);
+      pointer-events: none;
     }
 
     /* FRANJA DE ÍCONOS bajo el hero */
@@ -501,7 +510,7 @@
 
     .serv-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 22px;
     }
 
@@ -591,7 +600,7 @@
 
     .sect-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 18px;
     }
 
@@ -660,7 +669,7 @@
     /* PROPOSITO */
     .mvv-strip {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 34px;
       margin-bottom: 64px;
     }
@@ -875,9 +884,8 @@
     }
 
     .foot-brand img {
-      height: 40px;
-      width: 40px;
-      border-radius: 50%;
+      height: 72px;
+      width: auto;
     }
 
     .foot-brand strong {
@@ -1005,6 +1013,30 @@
       }
     }
 
+    /* Arreglo mobile: evita que el botón "Solicitar cotización" se sobreponga al logo */
+    @media (max-width: 480px) {
+      .nav {
+        padding: 10px 16px;
+        gap: 8px;
+      }
+
+      .brand img {
+        height: 30px;
+        max-width: 130px;
+      }
+
+      .btn-nav {
+        padding: 8px 12px;
+        font-size: 0.74rem;
+        gap: 4px;
+        flex-shrink: 0;
+      }
+
+      .btn-nav svg {
+        display: none;
+      }
+    }
+
     /* Efecto de aparición al hacer scroll entre secciones (no altera ningún estilo existente) */
     .reveal {
       opacity: 0;
@@ -1045,15 +1077,11 @@
   <header>
     <div class="nav">
       <a href="#inicio" class="brand">
-        <img src="assets/logo-medipharma.png" alt="Logo MEDIPHARMA">
-        <div class="brand-text">
-          <strong>MEDIPHARMA</strong>
-          <!-- <span>Tu salud, un bien de calidad</span> -->
-        </div>
+        <img src="assets/logo-medipharma.png" alt="Logo MEDIPHARMA - Distribución farmacéutica">
       </a>
       <nav class="links">
         <a href="#quienes-somos">Quiénes somos</a>
-        <a href="#soluciones">Soluciones</a>
+        <a href="#soluciones">Portafolio</a>
         <a href="#calidad">Calidad</a>
         <a href="#sectores">Sectores</a>
         <a href="#contacto">Contacto</a>
@@ -1072,15 +1100,11 @@
       <div class="hero-grid">
         <div class="hero-content">
           <span class="eyebrow">Distribución farmacéutica · Ecuador</span>
-          <h1>Distribución farmacéutica para <em>instituciones de salud</em> en Ecuador</h1>
-          <p class="hero-desc">Soluciones de abastecimiento y distribución de medicamentos e insumos médicos para
-            hospitales, clínicas e instituciones públicas y privadas.</p>
+          <h1>Distribución farmacéutica para <em>instituciones de salud</em></h1>
+          <p class="hero-desc">Medicamentos e insumos médicos para instituciones del sector público y privado.</p>
           <div class="hero-slogan">Tu salud, un bien de calidad.</div>
           <div class="hero-tagline">
-            <span>✓ Más de 10 años de experiencia</span>
-            <span>✓ Cobertura nacional</span>
-            <span>✓ Atención pública y privada</span>
-            <span>✓ Servicio personalizado</span>
+            <span>Más de 10 años de experiencia · Cobertura nacional · Gestión especializada</span>
           </div>
           <div class="hero-ctas">
             <a href="https://wa.me/593982046568" class="btn-primary">Solicitar cotización
@@ -1113,10 +1137,7 @@
           <strong>Más de 10 años<br>de experiencia</strong>
         </div>
         <div class="feature-item">
-          <svg class="ic" viewBox="0 0 24 24">
-            <path d="M12 21c4-4 7-7.5 7-12a7 7 0 10-14 0c0 4.5 3 8 7 12z" />
-            <circle cx="12" cy="9" r="2.3" />
-          </svg>
+          <img src="assets/ecuador-map.png" alt="Mapa de Ecuador" style="width:24px; height:24px; flex-shrink:0;">
           <strong>Cobertura<br>nacional</strong>
         </div>
         <div class="feature-item">
@@ -1144,18 +1165,15 @@
           <span class="tag">Quiénes somos</span>
           <h2 style="color:var(--negro); font-size:2rem; margin-bottom:20px;">Experiencia y compromiso con el
             sector salud</h2>
-          <p>Medipharma es una empresa ecuatoriana con sede en Quito, especializada en la distribución de
-            medicamentos e insumos médicos a nivel nacional.</p>
-          <p>Contamos con más de diez años de experiencia atendiendo requerimientos de instituciones públicas y
-            privadas. Nuestra trayectoria comprende la distribución farmacéutica, la contratación pública, la gestión
-            documental y la coordinación logística.</p>
-          <p>Nuestro equipo trabaja con responsabilidad y comunicación directa para comprender las necesidades de cada
-            institución y gestionar sus solicitudes de manera eficiente.</p>
+          <p>Medipharma es una empresa ecuatoriana especializada en la distribución de medicamentos e insumos
+            médicos.</p>
+          <p>Con más de 10 años de trayectoria, desarrollamos nuestra actividad con una gestión responsable,
+            eficiente y orientada a las necesidades de nuestros clientes.</p>
           <ul class="nosotros-check">
-            <li><span class="tick">✓</span> Experiencia en el sector público y privado</li>
-            <li><span class="tick">✓</span> Gestión documental y cumplimiento normativo</li>
-            <li><span class="tick">✓</span> Coordinación logística en todo el país</li>
-            <li><span class="tick">✓</span> Comunicación directa y atención personalizada</li>
+            <li><span class="tick">✓</span> Experiencia en el sector</li>
+            <li><span class="tick">✓</span> Gestión documental y cumplimiento</li>
+            <li><span class="tick">✓</span> Cobertura nacional</li>
+            <li><span class="tick">✓</span> Atención personalizada</li>
           </ul>
           <a href="#soluciones" class="link-arrow">Conocer más sobre nosotros →</a>
         </div>
@@ -1182,47 +1200,24 @@
   <section class="soluciones reveal" id="soluciones">
     <div class="wrap">
       <div class="section-head">
-        <span class="tag">Nuestras soluciones</span>
-        <h2>Servicios para instituciones del sector salud</h2>
+        <span class="tag">Nuestro portafolio</span>
+        <h2>Medicamentos e insumos para el sector salud</h2>
       </div>
       <div class="serv-grid">
         <div class="serv-card">
           <div class="serv-icon"><svg class="ic" viewBox="0 0 24 24">
-              <path
-                d="M3 7h11v9H3zM14 10h4l3 3v3h-7zM6.5 19.5a1.8 1.8 0 100-3.6 1.8 1.8 0 000 3.6zM17.5 19.5a1.8 1.8 0 100-3.6 1.8 1.8 0 000 3.6z" />
+              <rect x="4" y="3" width="10" height="18" rx="2" />
+              <path d="M9 3v18M4 9h10" />
             </svg></div>
-          <h3>Distribución farmacéutica</h3>
-          <p>Gestionamos la distribución de medicamentos e insumos médicos de acuerdo con las necesidades y
-            condiciones de cada institución.</p>
-          <span class="link-arrow">→</span>
-        </div>
-        <div class="serv-card">
-          <div class="serv-icon"><svg class="ic" viewBox="0 0 24 24">
-              <path d="M6 2h9l5 5v15H6z" />
-              <path d="M15 2v5h5M9 13h6M9 17h6M9 9h2" />
-            </svg></div>
-          <h3>Contratación pública farmacéutica</h3>
-          <p>Contamos con experiencia en procesos de contratación con entidades públicas y en la gestión de los
-            requerimientos documentales correspondientes.</p>
-          <span class="link-arrow">→</span>
+          <h3>Medicamentos</h3>
+          <p>Productos farmacéuticos orientados a las necesidades de nuestros clientes.</p>
         </div>
         <div class="serv-card">
           <div class="serv-icon"><svg class="ic" viewBox="0 0 24 24">
               <path d="M3 10h18v9H3zM8 10V6a2 2 0 012-2h4a2 2 0 012 2v4M10 14.5h4M12 12.5v4" />
             </svg></div>
           <h3>Insumos médico-quirúrgicos</h3>
-          <p>Atendemos solicitudes de dispositivos médicos, equipos de diagnóstico, materiales quirúrgicos y elementos
-            de bioseguridad.</p>
-          <span class="link-arrow">→</span>
-        </div>
-        <div class="serv-card">
-          <div class="serv-icon"><svg class="ic" viewBox="0 0 24 24">
-              <path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z" />
-              <path d="M4 7.5L12 12l8-4.5M12 12v9" />
-            </svg></div>
-          <h3>Coordinación logística</h3>
-          <p>Coordinamos los despachos y brindamos seguimiento durante el proceso de entrega.</p>
-          <span class="link-arrow">→</span>
+          <p>Insumos y materiales para uso médico y hospitalario.</p>
         </div>
       </div>
     </div>
@@ -1262,38 +1257,21 @@
 
         <div id="sectores">
           <span class="tag">Sectores atendidos</span>
-          <h2 style="color:var(--negro); font-size:1.5rem; margin-bottom:24px;">Abastecimiento para instituciones de
-            salud</h2>
+          <h2 style="color:var(--negro); font-size:1.5rem; margin-bottom:24px;">Sector público y privado</h2>
           <div class="sect-grid">
-            <div class="sect-card">
-              <div class="sect-icon"><svg class="ic" viewBox="0 0 24 24">
-                  <path d="M4 21V6l6-4 6 4v15M10 21v-5h4v5M9 10h.01M13 10h.01M9 14h.01M13 14h.01" />
-                </svg></div>
-              <h4>Hospitales</h4>
-              <p>Requerimientos operativos, documentales y logísticos de cada institución.</p>
-            </div>
-            <div class="sect-card">
-              <div class="sect-icon"><svg class="ic" viewBox="0 0 24 24">
-                  <path d="M8 3c0 3-3 3-3 6a5 5 0 0010 0c0-3-3-3-3-6M9 21h6M12 17v4" />
-                </svg></div>
-              <h4>Clínicas y centros médicos</h4>
-              <p>Medicamentos, insumos médicos y materiales para instituciones privadas de salud.</p>
-            </div>
             <div class="sect-card">
               <div class="sect-icon"><svg class="ic" viewBox="0 0 24 24">
                   <path d="M3 21h18M4 21V10l8-6 8 6v11M9 21v-7h6v7" />
                 </svg></div>
-              <h4>Instituciones públicas</h4>
-              <p>Contratación pública y gestión documental de cada solicitud.</p>
+              <h4>Sector público</h4>
+              <p>Experiencia en contratación pública y gestión documental.</p>
             </div>
             <div class="sect-card">
               <div class="sect-icon"><svg class="ic" viewBox="0 0 24 24">
-                  <circle cx="9" cy="8" r="2.6" />
-                  <circle cx="17" cy="9" r="2.2" />
-                  <path d="M4 20c0-3.3 2.2-5.5 5-5.5s5 2.2 5 5.5M14.5 20c0-2.5 1.5-4.3 3.7-4.3S22 17.5 22 20" />
+                  <path d="M4 21V6l6-4 6 4v15M10 21v-5h4v5M9 10h.01M13 10h.01M9 14h.01M13 14h.01" />
                 </svg></div>
-              <h4>Instituciones privadas</h4>
-              <p>Soluciones adaptadas a las condiciones comerciales de cada organización.</p>
+              <h4>Sector privado</h4>
+              <p>Atención a instituciones y establecimientos de salud.</p>
             </div>
           </div>
         </div>
@@ -1308,18 +1286,10 @@
         <div>
           <span class="tag">Cobertura nacional</span>
           <div class="cobertura-icon">
-            <svg class="ic" viewBox="0 0 24 24">
-              <path d="M12 21c4-4 7-7.5 7-12a7 7 0 10-14 0c0 4.5 3 8 7 12z" />
-              <circle cx="12" cy="9" r="2.3" />
-            </svg>
+            <img src="assets/ecuador-map.png" alt="Mapa de Ecuador" style="width:24px; height:24px; flex-shrink:0;">
           </div>
-          <h2 style="color:var(--negro); font-size:1.7rem; margin-bottom:16px;">Distribución de medicamentos en todo
-            Ecuador</h2>
-          <p>Coordinamos despachos para instituciones ubicadas en diferentes zonas del país. Cada entrega se gestiona
-            según el lugar de destino, las características del requerimiento y las condiciones logísticas
-            aplicables.</p>
-          <p>Nuestro equipo brinda seguimiento durante el proceso de despacho y mantiene una comunicación directa con
-            cada cliente.</p>
+          <h2 style="color:var(--negro); font-size:1.7rem; margin-bottom:16px;">Presencia en Ecuador</h2>
+          <p>Coordinamos nuestros despachos a nivel nacional, con seguimiento durante cada etapa del proceso.</p>
         </div>
         <div class="cobertura-img">
           <img src="assets/camion-distribucion.jpg" alt="Cobertura nacional MEDIPHARMA">
@@ -1339,8 +1309,8 @@
             </svg></div>
           <div>
             <h3>Misión</h3>
-            <p>Brindar soluciones eficientes y responsables de distribución, con atención personalizada y condiciones
-              competitivas.</p>
+            <p>Contribuir al abastecimiento del sector salud mediante una distribución farmacéutica responsable,
+              eficiente y confiable.</p>
           </div>
         </div>
         <div class="mvv-item">
@@ -1350,35 +1320,26 @@
             </svg></div>
           <div>
             <h3>Visión</h3>
-            <p>Ser la empresa referente en distribución farmacéutica en Ecuador, reconocida por su confiabilidad y
-              cobertura nacional.</p>
-          </div>
-        </div>
-        <div class="mvv-item">
-          <div class="ic-circle"><svg class="ic" viewBox="0 0 24 24">
-              <path d="M12 21s-8-4.5-8-11a5 5 0 019-3 5 5 0 019 3c0 6.5-8 11-8 11z" />
-            </svg></div>
-          <div>
-            <h3>Valores</h3>
-            <p>Responsabilidad, confianza, servicio y compromiso guían cada proceso que gestionamos.</p>
+            <p>Consolidarnos como una empresa de referencia en distribución farmacéutica en Ecuador, reconocida por la
+              solidez de nuestra gestión y la confianza de nuestros clientes.</p>
           </div>
         </div>
       </div>
 
       <div class="section-head" style="margin-bottom:34px;">
-        <span class="tag">Valores</span>
+        <span class="tag">Nuestros principios</span>
         <h2>Lo que nos define</h2>
       </div>
       <div class="valores-grid">
         <div class="valor-card">
           <div class="valor-icon">R</div>
           <h4>Responsabilidad</h4>
-          <p>Gestionamos cada requerimiento con seriedad y profesionalismo.</p>
+          <p>Actuamos con rigor y profesionalismo.</p>
         </div>
         <div class="valor-card">
           <div class="valor-icon">C</div>
           <h4>Confianza</h4>
-          <p>Construimos relaciones comerciales transparentes y duraderas.</p>
+          <p>Construimos relaciones transparentes y duraderas.</p>
         </div>
         <div class="valor-card">
           <div class="valor-icon">S</div>
@@ -1388,7 +1349,7 @@
         <div class="valor-card">
           <div class="valor-icon">C</div>
           <h4>Compromiso</h4>
-          <p>Acompañamos cada solicitud desde su recepción hasta el seguimiento del despacho.</p>
+          <p>Acompañamos cada proceso con responsabilidad y continuidad.</p>
         </div>
       </div>
     </div>
@@ -1407,10 +1368,14 @@
     </svg>
     <div class="wrap">
       <div class="section-head">
-        <span class="tag">Contacto y cotizaciones</span>
-        <h2>Estamos para ayudarte</h2>
-        <p><a href="#contacto" class="link-arrow" style="text-decoration:underline;">Contáctanos</a> para conocer
-          cómo podemos apoyar a tu institución con soluciones farmacéuticas confiables y eficientes.</p>
+        <span class="tag">Contacto</span>
+        <h2>Contáctenos</h2>
+        <p>Para consultas comerciales y cotizaciones.</p>
+        <a href="https://wa.me/593982046568" class="btn-primary" style="margin-top:14px;">Contactar
+          <svg class="ic" style="stroke:#fff; width:16px; height:16px;" viewBox="0 0 24 24">
+            <path d="M5 12h14M13 6l6 6-6 6" />
+          </svg>
+        </a>
       </div>
       <div class="contacto-grid">
         <div>
@@ -1434,10 +1399,7 @@
               </svg></div>
             <div>
               <strong>Correo electrónico</strong>
-              <span>ventas@medipharma.com.ec</span><br>
-              <span>gerencia@medipharma.com.ec</span><br>
-              <span>gerenciaventas@medipharma.com.ec</span><br>
-              <span>asistentegerencia@medipharma.com.ec</span>
+              <span>ventas@medipharma.ec</span>
             </div>
           </div>
           <div class="contacto-info-item">
@@ -1494,16 +1456,13 @@
         <div>
           <div class="foot-brand">
             <img src="assets/logo-medipharma.png" alt="Logo MEDIPHARMA">
-            <strong>MEDIPHARMA</strong>
           </div>
           <p>Distribución de medicamentos e insumos médicos para instituciones públicas y privadas en Ecuador.</p>
           <div class="social-row">
-            <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+            <a href="https://www.linkedin.com/company/medipharma-s-a/" aria-label="LinkedIn" target="_blank"
+              rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
                 <rect x="3" y="3" width="18" height="18" rx="3" />
                 <path d="M7 10v7M7 7v.01M11 17v-4.5a2 2 0 014 0V17M11 17v-7" />
-              </svg></a>
-            <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
-                <path d="M15 8h2V4h-2a4 4 0 00-4 4v2H9v4h2v6h4v-6h2.5L18 10h-3V8a1 1 0 011-1z" />
               </svg></a>
           </div>
         </div>
@@ -1512,7 +1471,7 @@
           <div class="foot-links">
             <a href="#inicio">Inicio</a>
             <a href="#quienes-somos">Quiénes somos</a>
-            <a href="#soluciones">Soluciones</a>
+            <a href="#soluciones">Portafolio</a>
             <a href="#calidad">Calidad</a>
             <a href="#sectores">Sectores</a>
             <a href="#cobertura">Cobertura nacional</a>
@@ -1520,22 +1479,22 @@
           </div>
         </div>
         <div>
-          <h5>Soluciones</h5>
+          <h5>Portafolio</h5>
           <div class="foot-links">
-            <a href="#soluciones">Distribución farmacéutica</a>
-            <a href="#soluciones">Contratación pública</a>
+            <a href="#soluciones">Medicamentos</a>
             <a href="#soluciones">Insumos médico-quirúrgicos</a>
-            <a href="#soluciones">Coordinación logística</a>
           </div>
         </div>
         <div>
           <h5>Contacto</h5>
           <div class="foot-links">
             <a href="https://wa.me/593982046568">+593 98 204 6568</a>
-            <a href="mailto:ventas@medipharma.com.ec">ventas@medipharma.com.ec</a>
+            <a href="mailto:ventas@medipharma.ec">ventas@medipharma.ec</a>
             <a href="#contacto">Quito, Ecuador</a>
           </div>
-          <p style="margin-top:16px; font-size:0.8rem;">Política de privacidad · Términos y condiciones</p>
+          <p style="margin-top:16px; font-size:0.8rem;">
+            <a href="privacidad.html">Política de privacidad</a> · <a href="terminos.html">Términos y condiciones</a>
+          </p>
         </div>
       </div>
       <div class="copy">© 2026 Medipharma S.A. Todos los derechos reservados. La información publicada en este
