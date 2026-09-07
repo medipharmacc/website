@@ -215,17 +215,42 @@
       font-size: 1rem;
     }
 
-    /* HERO — layout dividido tipo mockup, con imagen curva */
+    /* HERO — foto de fondo completa con degradado, texto superpuesto (versión pedida por el cliente) */
     .hero {
-      padding: 60px 0 0;
-      background: var(--blanco);
+      position: relative;
+      min-height: 620px;
+      display: flex;
+      align-items: center;
+      padding: 130px 0 80px;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-bg::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, rgba(41, 41, 42, 0.9) 0%, rgba(230, 50, 49, 0.68) 55%, rgba(230, 50, 49, 0.38) 100%);
     }
 
     .hero-grid {
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 40px;
-      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-content {
+      max-width: 680px;
     }
 
     .eyebrow {
@@ -236,7 +261,7 @@
       font-weight: 700;
       letter-spacing: 2px;
       text-transform: uppercase;
-      color: var(--gris);
+      color: rgba(255, 255, 255, 0.85);
       margin-bottom: 18px;
     }
 
@@ -244,7 +269,7 @@
       content: "";
       width: 10px;
       height: 2px;
-      background: var(--gris);
+      background: rgba(255, 255, 255, 0.85);
       display: inline-block;
     }
 
@@ -253,17 +278,17 @@
       font-weight: 700;
       line-height: 1.18;
       margin-bottom: 20px;
-      color: var(--negro);
+      color: #fff;
     }
 
     .hero h1 em {
       font-style: normal;
-      color: var(--rojo);
+      color: #FFC2C0;
     }
 
     .hero p.hero-desc {
       font-size: 1.02rem;
-      color: var(--gris);
+      color: rgba(255, 255, 255, 0.92);
       max-width: 480px;
       margin-bottom: 18px;
     }
@@ -271,13 +296,13 @@
     .hero-slogan {
       font-size: 1.15rem;
       font-weight: 700;
-      color: var(--rojo);
+      color: #fff;
       margin-bottom: 28px;
     }
 
     .hero-tagline {
       font-size: 0.9rem;
-      color: var(--gris);
+      color: rgba(255, 255, 255, 0.85);
       font-weight: 500;
       margin-bottom: 30px;
       display: flex;
@@ -321,59 +346,28 @@
       color: var(--rojo);
     }
 
-    .hero-visual {
-      position: relative;
-      height: 440px;
+    .hero .btn-primary {
+      background: #fff;
+      color: var(--rojo);
     }
 
-    .hero-visual .dots {
-      position: absolute;
-      left: -18px;
-      top: 30px;
-      width: 90px;
-      height: 90px;
-      z-index: 0;
-      background-image: radial-gradient(var(--rojo) 1.6px, transparent 1.6px);
-      background-size: 12px 12px;
-      opacity: 0.55;
+    .hero .btn-primary:hover {
+      background: var(--rojo-hielo);
     }
 
-    .hero-visual .arc {
-      position: absolute;
-      left: -60px;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 220px;
-      height: 220px;
-      border: 1.5px solid var(--rojo);
-      border-radius: 50%;
-      opacity: 0.45;
-      z-index: 0;
+    .hero .btn-primary svg {
+      stroke: var(--rojo) !important;
     }
 
-    .hero-image {
-      position: relative;
-      z-index: 1;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      border-radius: 50% 12px 12px 50% / 100% 12px 12px 100%;
-      box-shadow: var(--sombra);
+    .hero .btn-outline {
+      border-color: rgba(255, 255, 255, 0.6);
+      color: #fff;
     }
 
-    .hero-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0.92;
-    }
-
-    .hero-image::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(120deg, rgba(41, 41, 42, 0.65) 0%, rgba(230, 50, 49, 0.5) 45%, rgba(230, 50, 49, 0.2) 100%);
-      pointer-events: none;
+    .hero .btn-outline:hover {
+      border-color: #fff;
+      color: #fff;
+      background: rgba(255, 255, 255, 0.1);
     }
 
     /* FRANJA DE ÍCONOS bajo el hero */
@@ -968,9 +962,9 @@
         grid-template-columns: 1fr;
       }
 
-      .hero-visual {
-        height: 300px;
-        margin-top: 30px;
+      .hero {
+        min-height: 520px;
+        padding: 110px 0 60px;
       }
 
       .badge-float {
@@ -1096,6 +1090,9 @@
 
   <!-- HERO -->
   <section class="hero reveal" id="inicio">
+    <div class="hero-bg">
+      <img src="assets/bodega-medicamentos.png" alt="Distribución MEDIPHARMA">
+    </div>
     <div class="wrap">
       <div class="hero-grid">
         <div class="hero-content">
@@ -1108,18 +1105,11 @@
           </div>
           <div class="hero-ctas">
             <a href="https://wa.me/593982046568" class="btn-primary">Solicitar cotización
-              <svg class="ic" style="stroke:#fff; width:16px; height:16px;" viewBox="0 0 24 24">
+              <svg class="ic" style="stroke:var(--rojo); width:16px; height:16px;" viewBox="0 0 24 24">
                 <path d="M5 12h14M13 6l6 6-6 6" />
               </svg>
             </a>
-            <a href="#soluciones" class="btn-outline">Conocer nuestras soluciones</a>
-          </div>
-        </div>
-        <div class="hero-visual">
-          <div class="dots"></div>
-          <div class="arc"></div>
-          <div class="hero-image">
-            <img src="assets/bodega-medicamentos.png" alt="Distribución MEDIPHARMA">
+            <a href="#soluciones" class="btn-outline">Conoce nuestro portafolio</a>
           </div>
         </div>
       </div>
@@ -1292,7 +1282,7 @@
           <p>Coordinamos nuestros despachos a nivel nacional, con seguimiento durante cada etapa del proceso.</p>
         </div>
         <div class="cobertura-img">
-          <img src="assets/camion-distribucion.jpg" alt="Cobertura nacional MEDIPHARMA">
+          <img src="assets/bodega-medicamentos.png" alt="Cobertura nacional MEDIPHARMA">
         </div>
       </div>
     </div>
